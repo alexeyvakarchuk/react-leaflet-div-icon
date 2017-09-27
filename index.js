@@ -55,10 +55,6 @@ function createContextProvider(context) {
     return ContextProvider;
   }(_react.Component);
 
-  ContextProvider.childContextTypes = {};
-  Object.keys(context).forEach(function (key) {
-    ContextProvider.childContextTypes[key] = _react.PropTypes.any;
-  });
   return ContextProvider;
 }
 
@@ -159,8 +155,5 @@ var Divicon = function (_MapLayer) {
   return Divicon;
 }(_reactLeaflet.MapLayer);
 
-Divicon.childContextTypes = {
-  popupContainer: _react.PropTypes.object
-};
 exports.default = Divicon;
 
