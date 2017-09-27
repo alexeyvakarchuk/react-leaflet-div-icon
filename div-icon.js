@@ -14,11 +14,14 @@ function createContextProvider(context) {
     }
   }
 
+  ContextProvider.childContextTypes = {};
+  Object.keys(context).forEach(key => {
+    ContextProvider.childContextTypes[key] = PropTypes.any;
+  });
   return ContextProvider;
 }
 
 export default class Divicon extends MapLayer {
-
   getChildContext() {
     return {
       popupContainer: this.leafletElement,
