@@ -2,6 +2,7 @@ import React, {Component, Children} from 'react';
 import {render} from 'react-dom';
 import {DivIcon, marker} from 'leaflet';
 import {MapLayer} from 'react-leaflet';
+import PropTypes from 'prop-types';
 
 function createContextProvider(context) {
     class ContextProvider extends Component {
@@ -13,24 +14,29 @@ function createContextProvider(context) {
             return this.props.children;
         }
     }
-    //
-    // ContextProvider.childContextTypes = {};
-    // Object.keys(context).forEach(key => {
-    //     ContextProvider.childContextTypes[key] = PropTypes.any;
-    // });
+
+    ContextProvider.childContextTypes = {};
+    Object.keys(context).forEach(key => {
+        ContextProvider.childContextTypes[key] = PropTypes.any;
+    });
     return ContextProvider;
 }
 
 export default class Divicon extends MapLayer {
-    // static childContextTypes = {
-    //     popupContainer: PropTypes.object,
-    // };
-    //
-    // getChildContext() {
-    //     return {
-    //         popupContainer: this.leafletElement,
-    //     }
-    // }
+    static propTypes = {
+        opacity: PropTypes.number,
+        zIndexOffset: PropTypes.number,
+    };
+
+    static childContextTypes = {
+        popupContainer: PropTypes.object,
+    };
+
+    getChildContext() {
+        return {
+            popupContainer: this.leafletElement,
+        }
+    }
 
     // See https://github.com/PaulLeCam/react-leaflet/issues/275
     createLeafletElement(newProps) {

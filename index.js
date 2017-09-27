@@ -20,6 +20,10 @@ var _leaflet = require('leaflet');
 
 var _reactLeaflet = require('react-leaflet');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -54,13 +58,11 @@ function createContextProvider(context) {
 
         return ContextProvider;
     }(_react.Component);
-    //
-    // ContextProvider.childContextTypes = {};
-    // Object.keys(context).forEach(key => {
-    //     ContextProvider.childContextTypes[key] = PropTypes.any;
-    // });
 
-
+    ContextProvider.childContextTypes = {};
+    Object.keys(context).forEach(function (key) {
+        ContextProvider.childContextTypes[key] = _propTypes2.default.any;
+    });
     return ContextProvider;
 }
 
@@ -93,19 +95,17 @@ var Divicon = function (_MapLayer) {
     }
 
     _createClass(Divicon, [{
-        key: 'createLeafletElement',
-
-        // static childContextTypes = {
-        //     popupContainer: PropTypes.object,
-        // };
-        //
-        // getChildContext() {
-        //     return {
-        //         popupContainer: this.leafletElement,
-        //     }
-        // }
+        key: 'getChildContext',
+        value: function getChildContext() {
+            return {
+                popupContainer: this.leafletElement
+            };
+        }
 
         // See https://github.com/PaulLeCam/react-leaflet/issues/275
+
+    }, {
+        key: 'createLeafletElement',
         value: function createLeafletElement(newProps) {
             var _map = newProps.map,
                 _lc = newProps.layerContainer,
@@ -163,5 +163,12 @@ var Divicon = function (_MapLayer) {
     return Divicon;
 }(_reactLeaflet.MapLayer);
 
+Divicon.propTypes = {
+    opacity: _propTypes2.default.number,
+    zIndexOffset: _propTypes2.default.number
+};
+Divicon.childContextTypes = {
+    popupContainer: _propTypes2.default.object
+};
 exports.default = Divicon;
 

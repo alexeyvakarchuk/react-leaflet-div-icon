@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-div-icon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "marker that will use children as the content if the marker.",
   "main": "index.js",
   "scripts": {
@@ -18,15 +18,18 @@
   },
   "homepage": "https://github.com/jgimbel/react-leaflet-div-icon#readme",
   "devDependencies": {
-    "babel-cli": "^6.9.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-0": "^6.5.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
   },
   "peerDependencies": {
     "leaflet": "^0.7.0",
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0",
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-leaflet": "^0.11.5"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
   }
 }
