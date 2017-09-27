@@ -22,11 +22,6 @@ function createContextProvider(context) {
 }
 
 export default class Divicon extends MapLayer {
-  static propTypes = {
-    opacity: PropTypes.number,
-    zIndexOffset: PropTypes.number,
-  };
-
   static childContextTypes = {
     popupContainer: PropTypes.object,
   };
