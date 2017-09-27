@@ -1,4 +1,4 @@
-import React, {Component, PropTypes, Children} from 'react';
+import React, {Component, Children} from 'react';
 import {render} from 'react-dom';
 import {DivIcon, marker} from 'leaflet';
 import {MapLayer} from 'react-leaflet';

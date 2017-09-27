@@ -159,10 +159,6 @@ var Divicon = function (_MapLayer) {
   return Divicon;
 }(_reactLeaflet.MapLayer);
 
-Divicon.propTypes = {
-  opacity: _react.PropTypes.number,
-  zIndexOffset: _react.PropTypes.number
-};
 Divicon.childContextTypes = {
   popupContainer: _react.PropTypes.object
 };
